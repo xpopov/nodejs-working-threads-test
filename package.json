@@ -1,0 +1,74 @@
+{
+  "name": "working-threads-test-es6",
+  "version": "0.0.1",
+  "private": true,
+  "description": "node.js working_threads test",
+  "keywords": [
+    "working_threads",
+    "express",
+    "es6"
+  ],
+  "author": "Max Popov",
+  "license": "MIT",
+  "main": "index.js",
+  "engines": {
+    "npm": ">=5.0.0",
+    "node": ">=12.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.5",
+    "awilix": "^2.7.0",
+    "babel-preset-node6": "^11.0.0",
+    "babel-register": "^6.26.0",
+    "body-parser": "~1.14.1",
+    "compression": "~1.6.0",
+    "crypto": "0.0.3",
+    "express": "^4.15.3",
+    "gulp-concat": "^2.6.1",
+    "hashmap": "~2.0.4",
+    "merge": "^1.2.0",
+    "path": "^0.12.7",
+    "pump": "^2.0.0",
+    "q": "^1.4.1",
+    "swagger-jsdoc": "1.9.7",
+    "underscore": "^1.8.3",
+    "utf8": "^2.1.1",
+    "winston": "~1.0.1",
+    "yamljs": "~0.2.4"
+  },
+  "scripts": {
+    "start": "gulp && npm run quick-start",
+    "quick-start": "node dist/index.js --ulimit -n 999999 --max-old-space-size=1024",
+    "___test": "mocha --harmony test/test-suite.js --timeout 200000000"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "rules": {
+      "semi": "error",
+      "eqeqeq": "error",
+      "curly": "error",
+      "no-irregular-whitespace": "error",
+      "no-var": "error"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-plugin-transform-runtime": "^7.0.0-beta.3",
+    "babel-preset-node6": "^11.0.0",
+    "babel-register": "^6.26.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-concat": "^2.6.1"
+  }
+}
