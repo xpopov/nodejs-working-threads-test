@@ -19,12 +19,10 @@
     "@babel/runtime": "^7.5.5",
     "awilix": "^2.7.0",
     "babel-preset-node6": "^11.0.0",
-    "babel-register": "^6.26.0",
     "body-parser": "~1.14.1",
     "compression": "~1.6.0",
     "crypto": "0.0.3",
     "express": "^4.15.3",
-    "gulp-concat": "^2.6.1",
     "hashmap": "~2.0.4",
     "merge": "^1.2.0",
     "path": "^0.12.7",
@@ -38,7 +36,7 @@
   },
   "scripts": {
     "start": "gulp && npm run quick-start",
-    "quick-start": "node dist/index.js --ulimit -n 999999 --max-old-space-size=1024",
+    "quick-start": "node dist/app/index.js --ulimit -n 999999 --max-old-space-size=1024",
     "___test": "mocha --harmony test/test-suite.js --timeout 200000000"
   },
   "eslintConfig": {
@@ -64,9 +62,6 @@
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "babel-plugin-transform-runtime": "^7.0.0-beta.3",
-    "babel-preset-node6": "^11.0.0",
-    "babel-register": "^6.26.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0-beta.2",
     "gulp-concat": "^2.6.1"

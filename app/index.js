@@ -1,25 +1,12 @@
-// import config from 'config'
-
 import http from 'http'
 import express from 'express'
 import { Worker } from 'worker_threads'
 
+import config from '../config'
 
 let app = express()
-let port = 8080 //config.port || 8080
-
-/* add express middleware to app */
-// app.use(bodyParser.urlencoded());    // bodyparser urlencoded
-// app.use(bodyParser.json());          // bodyparser json
-// app.use(morgan('dev'));              // morgan http-request-logger
-
-function sleep(ms) {
-  // return new Promise(resolve => setTimeout(resolve, ms));
-  var date = new Date();
-  var curDate = null;
-  do { 
-    curDate = new Date(); } while(curDate-date < ms);
-}
+console.log(config)
+let port = config.port || 8080
 
 let router = express.Router()
 router.get('/', (req, res) => {
@@ -27,16 +14,6 @@ router.get('/', (req, res) => {
   .then(data => {
     res.send(data)
   })
-  // const { Worker, isMainThread, parentPort } = require('worker_threads')
-  // const worker = new Worker(__filename);
-  // let gWaitStatus = true
-  // worker.once('message', (message) => {
-  //   console.log(message);
-  //   gWaitStatus = false
-  // });
-  // while (gWaitStatus) {
-  //   sleep(1000)
-  // }
 })
 
 app.use(router)
@@ -46,22 +23,6 @@ server.listen(port, () => {
   console.log('API Server is listening on port:', port)
 })
 
-
-// const errorHandler = require('errorhandler')
-// const lusca = require('lusca')
-// const dotenv = require('dotenv')
-
-function runService(workerData) {
-  return new Promise((resolve, reject) => {
-    const worker = new Worker('./app/service.js', { workerData });
-    worker.on('message', resolve);
-    worker.on('error', reject);
-    worker.on('exit', (code) => {
-      if (code !== 0)
-        reject(new Error(`Worker stopped with exit code ${code}`));
-    })
-  })
-}
 
 async function run() {
   console.log("preparing workers...");
@@ -80,3 +41,14 @@ async function run() {
   console.log(result)
 }
 
+function runService(workerData) {
+  return new Promise((resolve, reject) => {
+    const worker = new Worker('./app/service.js', { workerData });
+    worker.on('message', resolve);
+    worker.on('error', reject);
+    worker.on('exit', (code) => {
+      if (code !== 0)
+        reject(new Error(`Worker stopped with exit code ${code}`));
+    })
+  })
+}
