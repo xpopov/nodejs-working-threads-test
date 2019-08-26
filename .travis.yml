@@ -1,0 +1,15 @@
+language: ruby
+cache: bundler
+rvm:
+  - 2.2.2
+
+install:
+  - . $HOME/.nvm/nvm.sh
+  - nvm install stable
+  - nvm use stable
+  - node -v
+  - bundle install
+  - npm install
+
+script:
+  - npm -v
