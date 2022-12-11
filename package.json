@@ -22,7 +22,7 @@
     "body-parser": "~1.14.1",
     "compression": "~1.6.0",
     "crypto": "0.0.3",
-    "express": "^4.15.3",
+    "express": "^4.17.3",
     "hashmap": "~2.0.4",
     "merge": "^1.2.0",
     "path": "^0.12.7",
